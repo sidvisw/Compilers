@@ -1,0 +1,177 @@
+===================================================================================================================
+Symbol Table: Global                                                             Parent: null
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+a                   float                    1.2              8           0          null
+t00                 float                    1.2              8           8          null
+b                   integer                  10               4           16         null
+t01                 integer                  10               4           20         null
+c                   char                     'a'              1           24         null
+t02                 char                     'a'              1           25         null
+i                   integer                                   4           26         null
+arr                 arr(10, integer)                          40          30         null
+t03                 integer                  10               4           70         null
+abc                 integer                  6                4           74         null
+t04                 integer                  6                4           78         null
+p                   ptr(integer)                              4           82         null
+cba                 integer                                   4           86         null
+myFunct1            integer                                   4           90         myFunct1
+myFunct2            float                                     8           94         myFunct2
+main                integer                                   4           102        main
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: myFunct1                                                           Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+a                   integer                                   4           0          null
+b                   integer                                   4           4          null
+return              integer                                   4           8          null
+c                   integer                                   4           12         null
+t00                 integer                  0                4           16         null
+t01                 integer                                   4           20         null
+t02                 integer                                   4           24         null
+t03                 integer                                   4           28         null
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: myFunct2                                                           Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+a                   float                                     8           0          null
+b                   float                                     8           8          null
+return              float                                     8           16         null
+c                   float                                     8           24         null
+t00                 float                                     8           32         null
+t01                 float                                     8           40         null
+t02                 float                                     8           48         null
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: main                                                               Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+return              integer                                   4           0          null
+i                   integer                                   4           4          null
+t00                 integer                  0                4           8          null
+t01                 integer                                   4           12         null
+t02                 integer                  10               4           16         null
+t03                 integer                                   4           20         null
+t04                 integer                  5                4           24         null
+a                   integer                  10               4           28         null
+t05                 integer                  1                4           32         null
+t06                 integer                                   4           36         null
+t07                 integer                                   4           40         null
+t08                 integer                  1                4           44         null
+t09                 integer                                   4           48         null
+t10                 integer                                   4           52         null
+b                   integer                  20               4           56         null
+t11                 integer                  1                4           60         null
+t12                 integer                                   4           64         null
+t13                 integer                                   4           68         null
+t14                 integer                  1                4           72         null
+t15                 integer                                   4           76         null
+t16                 integer                                   4           80         null
+t17                 integer                  10               4           84         null
+t18                 integer                  10               4           88         null
+t19                 integer                  1                4           92         null
+t20                 integer                  10               4           96         null
+t21                 integer                  20               4           100        null
+c                   integer                                   4           104        null
+t22                 integer                                   4           108        null
+t23                 integer                  0                4           112        null
+t24                 integer                  10               4           116        null
+t25                 integer                  20               4           120        null
+t26                 integer                                   4           124        null
+-------------------------------------------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+	0   :	t00 = 1.2
+	1   :	a = t00
+	2   :	t01 = 10
+	3   :	b = t01
+	4   :	t02 = 'a'
+	5   :	c = t02
+	6   :	t03 = 10
+	7   :	t04 = 6
+	8   :	abc = t04
+
+myFunct1: 
+
+	10  :	t00 = 0
+	11  :	c = t00
+	12  :	t02 = a + b
+	13  :	c = t02
+	14  :	ret c
+
+myFunct2: 
+
+	16  :	t00 = a + b
+	17  :	t01 = - t00
+	18  :	c = t01
+	19  :	ret c
+
+main: 
+
+	21  :	t00 = 0
+	22  :	i = t00
+	23  :	t02 = 10
+	24  :	if i < t02 goto 29
+	25  :	goto 41
+	26  :	t03 = i
+	27  :	i = i + 1
+	28  :	goto 23
+	29  :	t04 = 5
+	30  :	if i == t04 goto 33
+	31  :	goto 37
+	32  :	goto 40
+	33  :	t05 = 1
+	34  :	t06 = a + t05
+	35  :	a = t06
+	36  :	goto 26
+	37  :	t08 = 1
+	38  :	SUBTRACT
+	39  :	a = t09
+	40  :	goto 26
+	41  :	t11 = 1
+	42  :	SUBTRACT
+	43  :	b = t12
+	44  :	t14 = 1
+	45  :	t15 = a + t14
+	46  :	a = t15
+	47  :	t17 = 10
+	48  :	if b > t17 goto 41
+	49  :	goto 
+	50  :	goto 54
+	51  :	t18 = 10
+	52  :	if a < t18 goto 41
+	53  :	goto 54
+	54  :	t19 = 1
+	55  :	goto 74
+	56  :	t20 = 10
+	57  :	a = t20
+	58  :	t21 = 20
+	59  :	b = t21
+	60  :	t22 = a + b
+	61  :	c = t22
+	62  :	goto 
+	63  :	t23 = 0
+	64  :	goto 72
+	65  :	t24 = 10
+	66  :	a = t24
+	67  :	t25 = 20
+	68  :	b = t25
+	69  :	t26 = a + b
+	70  :	c = t26
+	71  :	goto 
+	72  :	if t23 == 0 goto 72
+	73  :	goto 65
+	74  :	if t19 == 0 goto 63
+	75  :	goto 56
+==============================

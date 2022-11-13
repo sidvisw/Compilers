@@ -1,0 +1,148 @@
+===================================================================================================================
+Symbol Table: Global                                                             Parent: null
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+swap                void                                      0           0          swap
+testFile            integer                  4                4           0          null
+t00                 integer                  4                4           4          null
+testChar            char                     'theFourthTestFile'1           8          null
+t01                 char                     'theFourthTestFile'1           9          null
+main                void                                      0           10         main
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: swap                                                               Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+a                   ptr(integer)                              4           0          null
+b                   ptr(integer)                              4           4          null
+temp                integer                                   4           8          null
+t00                 integer                                   4           12         null
+t01                 integer                                   4           16         null
+t02                 integer                                   4           20         null
+t03                 integer                                   4           24         null
+t04                 integer                                   4           28         null
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: main                                                               Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+a                   integer                  10               4           0          null
+t00                 integer                  10               4           4          null
+b                   integer                  20               4           8          null
+t01                 integer                  20               4           12         null
+swap                integer                                   4           16         null
+t02                 ptr(integer)                              4           20         null
+t03                 ptr(integer)                              4           24         null
+t04                 integer                                   4           28         null
+i                   integer                                   4           32         null
+t05                 integer                  0                4           36         null
+t06                 integer                                   4           40         null
+t07                 integer                  10               4           44         null
+t08                 integer                                   4           48         null
+j                   integer                  0                4           52         null
+t09                 integer                  0                4           56         null
+t10                 integer                  10               4           60         null
+t11                 integer                                   4           64         null
+t12                 integer                  0                4           68         null
+t13                 integer                  0                4           72         null
+t14                 integer                                   4           76         null
+t15                 integer                  1                4           80         null
+t16                 integer                                   4           84         null
+f                   float                    1.2              8           88         null
+t17                 float                    1.2              8           96         null
+t18                 integer                                   4           104        null
+temp                ptr(char)                                 4           108        null
+name                arr(20, char)            "swap"           20          112        null
+t19                 integer                  20               4           132        null
+t20                 ptr(char)                "swap"           4           136        null
+t21                 ptr(null)                                 4           140        null
+letter              char                     'a'              1           144        null
+t22                 char                     'a'              1           145        null
+t23                 integer                  10               4           146        null
+t24                 integer                                   4           150        null
+val                 integer                  150              4           154        null
+t25                 integer                  150              4           158        null
+c                   char                     150              1           162        null
+-------------------------------------------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+	0   :	t00 = 4
+	1   :	testFile = t00
+	2   :	t01 = 'theFourthTestFile'
+	3   :	testChar = t01
+
+main: 
+
+	5   :	t00 = 10
+	6   :	a = t00
+	7   :	t01 = 20
+	8   :	b = t01
+	9   :	t02 = & a
+	10  :	param t02
+	11  :	t03 = & b
+	12  :	param t03
+	13  :	t04 = call swap, 2
+	14  :	t05 = 0
+	15  :	i = t05
+	16  :	t07 = 10
+	17  :	if i < t07 goto 22
+	18  :	goto 40
+	19  :	t08 = i
+	20  :	i = i + 1
+	21  :	goto 16
+	22  :	t09 = 0
+	23  :	j = t09
+	24  :	t10 = 10
+	25  :	if j < t10 goto 27
+	26  :	goto 19
+	27  :	t11 = j
+	28  :	j = j + 1
+	29  :	t12 = 0
+	30  :	if i == t12 goto 33
+	31  :	goto 36
+	32  :	goto 38
+	33  :	t13 = 0
+	34  :	j = t13
+	35  :	goto 24
+	36  :	t15 = 1
+	37  :	j = t15
+	38  :	goto 24
+	39  :	goto 19
+	40  :	t17 = 1.2
+	41  :	f = t17
+	42  :	t18 = double2int(f)
+	43  :	a = t18
+	44  :	t19 = 20
+	45  :	name = t20
+	46  :	temp = name
+	47  :	t22 = 'a'
+	48  :	letter = t22
+	49  :	t23 = 10
+	50  :	t24 = t23 + a
+	51  :	b = t24
+	52  :	t25 = 150
+	53  :	val = t25
+	54  :	c = val
+	55  :	ret 
+
+swap: 
+
+
+swap: 
+
+	58  :	t00 = * a
+	59  :	temp = t00
+	60  :	t02 = * a
+	61  :	t03 = * b
+	62  :	*a = t03
+	63  :	t04 = * b
+	64  :	*b = temp
+	65  :	ret 
+==============================

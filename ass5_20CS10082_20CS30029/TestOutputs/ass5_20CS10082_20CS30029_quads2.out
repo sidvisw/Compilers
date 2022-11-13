@@ -1,0 +1,123 @@
+===================================================================================================================
+Symbol Table: Global                                                             Parent: null
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+func                void                                      0           0          func
+main                void                                      0           0          main
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: func                                                               Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+f                   integer                                   4           0          null
+d                   float                                     8           4          null
+i                   integer                  0                4           12         null
+t00                 integer                  0                4           16         null
+t01                 integer                  0                4           20         null
+t02                 integer                                   4           24         null
+t03                 integer                  10               4           28         null
+t04                 integer                                   4           32         null
+t05                 integer                  5                4           36         null
+t06                 integer                  1                4           40         null
+t07                 integer                                   4           44         null
+t08                 integer                                   4           48         null
+t09                 float                                     8           52         null
+t10                 integer                  1                4           60         null
+t11                 integer                                   4           64         null
+t12                 integer                                   4           68         null
+t13                 float                                     8           72         null
+t14                 integer                  10               4           80         null
+t15                 integer                  10               4           84         null
+t16                 integer                                   4           88         null
+t17                 integer                  1                4           92         null
+t18                 integer                                   4           96         null
+t19                 integer                                   4           100        null
+t20                 integer                  1                4           104        null
+t21                 integer                                   4           108        null
+t22                 integer                                   4           112        null
+t23                 float                                     8           116        null
+-------------------------------------------------------------------------------------------------------------------
+
+===================================================================================================================
+Symbol Table: main                                                               Parent: Global
+----------------------------------------------------------------------------------------------------
+Name                Type                     Initial Value       Size        Offset      Nested
+----------------------------------------------------------------------------------------------------
+d                   float                    2.3              8           0          null
+t00                 float                    2.3              8           8          null
+i                   integer                                   4           16         null
+w                   arr(10, integer)                          40          20         null
+t01                 integer                  10               4           60         null
+a                   integer                  4                4           64         null
+t02                 integer                  4                4           68         null
+p                   ptr(integer)                              4           72         null
+b                   integer                                   4           76         null
+c                   char                                      1           80         null
+func                integer                                   4           81         null
+t03                 integer                                   4           85         null
+-------------------------------------------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+
+func: 
+
+	1   :	t00 = 0
+	2   :	i = t00
+	3   :	t01 = 0
+	4   :	i = t01
+	5   :	t03 = 10
+	6   :	if i < t03 goto 11
+	7   :	goto 27
+	8   :	t04 = i
+	9   :	i = i + 1
+	10  :	goto 5
+	11  :	t05 = 5
+	12  :	if i == t05 goto 15
+	13  :	goto 21
+	14  :	goto 26
+	15  :	t06 = 1
+	16  :	t07 = double2int(d)
+	17  :	t08 = t07 + t06
+	18  :	t09 = int2double(t08)
+	19  :	d = t09
+	20  :	goto 8
+	21  :	t10 = 1
+	22  :	t11 = double2int(d)
+	23  :	SUBTRACT
+	24  :	t13 = int2double(t12)
+	25  :	d = t13
+	26  :	goto 8
+	27  :	t14 = 10
+	28  :	if f > t14 goto 35
+	29  :	goto 
+	30  :	goto 35
+	31  :	t15 = 10
+	32  :	t16 = double2int(d)
+	33  :	if t16 < t15 goto 35
+	34  :	goto 
+	35  :	t17 = 1
+	36  :	SUBTRACT
+	37  :	f = t18
+	38  :	t20 = 1
+	39  :	t21 = double2int(d)
+	40  :	t22 = t21 + t20
+	41  :	t23 = int2double(t22)
+	42  :	d = t23
+	43  :	goto 27
+
+main: 
+
+	45  :	t00 = 2.3
+	46  :	d = t00
+	47  :	t01 = 10
+	48  :	t02 = 4
+	49  :	a = t02
+	50  :	param a
+	51  :	param d
+	52  :	t03 = call func, 2
+==============================
